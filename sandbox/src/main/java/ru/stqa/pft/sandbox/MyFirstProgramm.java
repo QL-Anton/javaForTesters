@@ -3,10 +3,10 @@ package ru.stqa.pft.sandbox;
 public class MyFirstProgramm {
 
    public static void main ( String[] args){
-       hello("ble");
 
 
-       Square s=new Square(435);
+
+       Square s=new Square(2);
 
      System.out.println("Площадь квадрата со стороной " + s.l+ " = "+s.area());
 
@@ -15,11 +15,18 @@ public class MyFirstProgramm {
      Rectangle r=new Rectangle(234,434);
 
      System.out.println("Площадь прямоугольника = " + r.area());
-}
-public static void hello(String somebody){
-  System.out.println("Hellow, "+ somebody + "!");
 
-  }
+
+
+     Point p1=new Point(6,6,5,1);
+
+
+
+
+     System.out.println("Расстояние между двумя точками = "+p1.dist());
+}
+
+
 
 
 
