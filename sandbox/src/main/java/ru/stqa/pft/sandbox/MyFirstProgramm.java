@@ -18,7 +18,7 @@ public class MyFirstProgramm {
 
 
 
-     Point p1=new Point(6,6,5,1);
+     Point p1=new Point(4,3,0,0);
 
 
 
