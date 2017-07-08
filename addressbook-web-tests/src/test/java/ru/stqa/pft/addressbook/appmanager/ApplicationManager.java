@@ -10,12 +10,15 @@ import java.util.concurrent.TimeUnit;
  * Created by Антон on 07.07.2017.
  */
 public class ApplicationManager {
+
   FirefoxDriver wd;
 
+  private ContactHelper contactHelper;
   private SessionHelper sessionHelper;
 
   private NavigationHelper navigationHelper ;
   private  GroupHelper groupHelper;
+
 
 
 
@@ -29,6 +32,7 @@ wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
      wd.get("http://localhost/addressbook/group.php");
     groupHelper = new GroupHelper(wd);
+    contactHelper = new ContactHelper(wd);
     navigationHelper = new NavigationHelper(wd );
     sessionHelper = new SessionHelper(wd);
     sessionHelper.login("admin", "secret");
@@ -58,5 +62,9 @@ wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
+  }
+
+  public ContactHelper getContactHelper() {
+    return contactHelper;
   }
 }
