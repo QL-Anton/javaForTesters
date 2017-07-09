@@ -29,4 +29,19 @@ public  void submitContactCreation(){
     click(By.xpath("//div[@id='content']/form/input[21]"));
 }
 
+
+
+public void setContact(){
+  click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
 }
+
+public void goToMainPage(){
+  click(By.id("logo"));
+}
+
+public void deleteSelectedContact(){
+  click(By.xpath("//div[@id='content']/form[2]/input[2]"));
+}
+
+}
+
