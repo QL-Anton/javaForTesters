@@ -35,7 +35,7 @@ public class ApplicationManager {
 
     WebDriver driver;
     System.setProperty("webdriver.gecko.driver", "D:\\geckodriver\\geckodriver.exe");
-    driver = new FirefoxDriver();
+
 
 
 
