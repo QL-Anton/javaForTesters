@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 /**
  * Created by Антон on 09.07.2017.
@@ -26,12 +27,15 @@ public class ContactHelper extends  HelperBase {
     type(By.name("mobile"), contactData.getMobile_phone());
     type(By.name("email"), contactData.getE_mail());
 
-    if (isElementPresent (By.name("new_group"))){
-
-
+    if(creation){
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    } else {
+      Assert.assertFalse(isElementPresent (By.name("new_group")));
     }
-  }
+
+
+    }
+
 
   public void submitContactCreation() {
     click(By.xpath("//div[@id='content']/form/input[21]"));
