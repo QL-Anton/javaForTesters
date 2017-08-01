@@ -23,6 +23,7 @@ public class ContactModificationTests extends TestBase {
     public void testContactModification() {
 
       app.getNavigationHelper().gotoHomePage();
+
       app.getContactHelper().setContact();
       app.getContactHelper().fillContactForm(new ContactData("testfn_mod", "testln_mod", "testad_mod", "91799992", "test@test.test",null), false);
       app.getContactHelper().submitModificationContact();
