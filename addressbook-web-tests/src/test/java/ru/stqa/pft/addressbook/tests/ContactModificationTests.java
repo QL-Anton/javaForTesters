@@ -1,10 +1,13 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.Date;
 import java.io.File;
@@ -28,11 +31,20 @@ public class ContactModificationTests extends TestBase {
         app.getContactHelper().createContact(new ContactData("erer","sdfdsf","sdfdsf","78787","sdfsadf@dsf","test1"));
       }
       app.getNavigationHelper().gotoHomePage();
-      app.getContactHelper().setContact();
+      List<ContactData> before=app.getContactHelper().getContactList();
+      app.getContactHelper().setContact(before.size()-1);
       app.getContactHelper().initContactModification();
-      app.getContactHelper().fillContactForm(new ContactData("testfn_mod", "testln_mod", "testad_mod", "91799992", "test@test.test",null), false);
+      ContactData contact=new ContactData("testfn_mod", "testln_mod", "testad_mod", "91799992", "test@test.test",null);
+      app.getContactHelper().fillContactForm(contact, false);
       app.getContactHelper().submitModificationContact();
       app.getNavigationHelper().gotoHomePage();
+      List<ContactData> after=app.getContactHelper().getContactList();
+      Assert.assertEquals(after.size(),before.size());
+
+      before.remove((before.size()-1));
+      before.add(contact);
+      Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+
     }
     
 
