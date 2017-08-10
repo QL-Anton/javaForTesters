@@ -29,24 +29,21 @@ public class ContactCreationTests extends  TestBase {
 
 
 
-      int max=0;
-      for (ContactData c:after){
-        if (c.getId()>max){
-          max=c.getId();
-        }
-      }
 
 
 
-      int max1=after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId();
+
+
       
 
-contact.setId(max1);
+
       before.add(contact);
 
+      Comparator<? super ContactData> ById=(c1,c2)->Integer.compare(c1.getId(),c2.getId());
+      before.sort(ById);
+      after.sort(ById);
 
-
-      Assert.assertEquals(new HashSet<Object>(after),new HashSet<Object>(before));
+      Assert.assertEquals(after,before);
 
     }
 
