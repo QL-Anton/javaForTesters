@@ -8,10 +8,9 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import java.util.List;
 
 public class ContactDeletionTests extends TestBase {
-  FirefoxDriver wd;
 
 
-  @Test
+  @Test (enabled=false)
   public void testContactDeletion() {
     app.getContactHelper().goToMainPage();
 
