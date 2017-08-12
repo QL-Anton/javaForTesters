@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -19,7 +18,7 @@ public class ContactDeletionTests extends TestBase {
 
     }
 
-    app.getNavigationHelper().gotoHomePage();
+    app.goTo().gotoHomePage();
 
 
     List<ContactData> before=app.getContactHelper().getContactList();
@@ -28,7 +27,7 @@ public class ContactDeletionTests extends TestBase {
     app.getContactHelper().initContactModification(before.size()-1);
     app.getContactHelper().deleteSelectedContact();
 
-    app.getNavigationHelper().gotoHomePage();
+    app.goTo().gotoHomePage();
     List<ContactData> after=app.getContactHelper().getContactList();
 
     Assert.assertEquals(after.size(), before.size()-1);
