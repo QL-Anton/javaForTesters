@@ -1,16 +1,51 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
-  private final String first_name;
-  private final String last_name;
-  private final String address;
-  private final String mobile_phone;
-  private final String e_mail;
-  private String group;
-  private int id;
+  private  String first_name;
+  private  String last_name;
+  private  String address;
+  private  String mobile_phone;
+  private  String e_mail;
+  private  String group;
+  private int  id=Integer.MAX_VALUE;
 
-  public void setId(int id) {
+  public ContactData withLast_name(String last_name) {
+    this.last_name = last_name;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactData withMobile_phone(String mobile_phone) {
+    this.mobile_phone = mobile_phone;
+    return this;
+  }
+
+  public ContactData withE_mail(String e_mail) {
+    this.e_mail = e_mail;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
+
+  }
+
+  public ContactData withFirst_name(String first_name) {
+
+    this.first_name = first_name;
+    return this;
+  }
+
+
+
+  public ContactData withId(int id) {
     this.id = id;
+    return this;
   }
 
 
@@ -18,16 +53,7 @@ public class ContactData {
     return id;
   }
 
-  public ContactData(String first_name, String last_name, String address, String mobile_phone, String e_mail, String group, int id) {
-    this.first_name = first_name;
 
-    this.last_name = last_name;
-    this.address = address;
-    this.mobile_phone = mobile_phone;
-    this.e_mail = e_mail;
-    this.group = group;
-    this.id = id;
-  }
 
 
   @Override
@@ -48,17 +74,7 @@ public class ContactData {
     return result;
   }
 
-  public ContactData(String first_name, String last_name, String address, String mobile_phone, String e_mail, String group) {
-    this.first_name = first_name;
 
-    this.last_name = last_name;
-    this.address = address;
-    this.mobile_phone = mobile_phone;
-    this.e_mail = e_mail;
-    this.group = group;
-    this.id = Integer.MAX_VALUE;
-
-  }
 
   public String getFirst_name() {
     return first_name;

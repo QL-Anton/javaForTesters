@@ -27,7 +27,7 @@ public class ContactHelper extends  HelperBase {
 
     type(By.name("firstname"), contactData.getFirst_name());
     type(By.name("lastname"), contactData.getLast_name());
-    type(By.name("address"), contactData.getMobile_phone());
+    type(By.name("address"), contactData.getAddress());
     type(By.name("mobile"), contactData.getMobile_phone());
     type(By.name("email"), contactData.getE_mail());
 
@@ -68,12 +68,28 @@ public class ContactHelper extends  HelperBase {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
 
-  public void createContact(ContactData contactData) {
+  public void create(ContactData contactData) {
    goToMainPage();
     initContactCreation();
     fillContactForm( contactData, true);
     submitContactCreation();
   }
+
+  public void modify(int index, ContactData contact, int indexModContact) {
+ setContact(index);
+    initContactModification(indexModContact);
+  fillContactForm(contact, false);
+ submitModificationContact();
+goToMainPage();
+  }
+
+  public void delete(int index, int idDeletedContact) {
+   setContact(index);
+   initContactModification(idDeletedContact);
+   deleteSelectedContact();
+    goToMainPage();
+  }
+
 
   public boolean isThereAContact() {
   return  isElementPresent(By.name("selected[]"));
@@ -85,7 +101,7 @@ public class ContactHelper extends  HelperBase {
   return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements=wd.findElements(By.name("entry"));
     for (WebElement element:elements) {
@@ -93,7 +109,7 @@ public class ContactHelper extends  HelperBase {
         String lastname = cells.get(1).getText();
       String firstname = cells.get(2).getText();
       int id=Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
-ContactData contact=new ContactData(firstname,lastname,null,null,null,null, id);
+ContactData contact=new ContactData().withFirst_name(firstname).withLast_name(lastname).withId(id);
 contacts.add(contact);
 
     }

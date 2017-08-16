@@ -83,7 +83,7 @@ wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     return navigationHelper;
   }
 
-  public ContactHelper getContactHelper() {
+  public ContactHelper contact() {
     return contactHelper;
   }
 }
