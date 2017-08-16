@@ -8,7 +8,9 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Антон on 09.07.2017.
@@ -75,9 +77,9 @@ public class ContactHelper extends  HelperBase {
     submitContactCreation();
   }
 
-  public void modify(int index, ContactData contact, int indexModContact) {
- setContact(index);
-    initContactModification(indexModContact);
+  public void modify( ContactData contact) {
+ setContactById(contact.getId());
+    initContactModification(contact.getId());
   fillContactForm(contact, false);
  submitModificationContact();
 goToMainPage();
@@ -101,18 +103,29 @@ goToMainPage();
   return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
     List<WebElement> elements=wd.findElements(By.name("entry"));
     for (WebElement element:elements) {
-        List<WebElement> cells=element.findElements(By.tagName("td"));
-        String lastname = cells.get(1).getText();
+      List<WebElement> cells=element.findElements(By.tagName("td"));
+      String lastname = cells.get(1).getText();
       String firstname = cells.get(2).getText();
       int id=Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
-ContactData contact=new ContactData().withFirst_name(firstname).withLast_name(lastname).withId(id);
-contacts.add(contact);
+      ContactData contact=new ContactData().withFirst_name(firstname).withLast_name(lastname).withId(id);
+      contacts.add(contact);
 
     }
-return contacts;
+    return contacts;
+  }
+
+  public void delete(ContactData contact, int idDeletedContact) {
+    setContactById(contact.getId());
+    initContactModification(idDeletedContact);
+    deleteSelectedContact();
+    goToMainPage();
+  }
+
+  private void setContactById(int id) {
+    wd.findElement(By.cssSelector("input[value='"+ id + "']")).click();
   }
 }
