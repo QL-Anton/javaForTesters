@@ -8,10 +8,7 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Антон on 09.07.2017.
@@ -104,6 +101,24 @@ goToMainPage();
   return wd.findElements(By.name("selected[]")).size();
   }
 
+
+
+  public ContactData infoFromEditForm(ContactData contact){
+    initContactModification(contact.getId());
+    String firstname=wd.findElement(By.name("firsname")).getAttribute("value");
+    String lastname=wd.findElement(By.name("lastname")).getAttribute("value");
+    String home=wd.findElement(By.name("home")).getAttribute("value");
+    String mobile=wd.findElement(By.name("mobile")).getAttribute("value");
+    String work=wd.findElement(By.name("work")).getAttribute("value");
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId()).
+            withFirst_name(firstname).
+            withLast_name(lastname).
+            withHomePhone(home).
+            withMobile_phone(mobile).
+            withWorkPhone(work);
+  }
+
   public Contacts all() {
     Contacts contacts = new Contacts();
     List<WebElement> elements=wd.findElements(By.name("entry"));
@@ -111,8 +126,14 @@ goToMainPage();
       List<WebElement> cells=element.findElements(By.tagName("td"));
       String lastname = cells.get(1).getText();
       String firstname = cells.get(2).getText();
+
+      String[] phones = cells.get(5).getText().split("\n");
+
+
+
       int id=Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
-      ContactData contact=new ContactData().withFirst_name(firstname).withLast_name(lastname).withId(id);
+      ContactData contact=new ContactData().withFirst_name(firstname).withLast_name(lastname).withId(id).
+              withHomePhone(phones[0]).withMobile_phone(phones[1]).withWorkPhone(phones[2]);
       contacts.add(contact);
 
     }
