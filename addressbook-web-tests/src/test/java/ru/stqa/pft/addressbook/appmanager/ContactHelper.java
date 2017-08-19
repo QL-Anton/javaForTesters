@@ -30,6 +30,8 @@ public class ContactHelper extends  HelperBase {
     type(By.name("address"), contactData.getAddress());
     type(By.name("mobile"), contactData.getMobile_phone());
     type(By.name("email"), contactData.getE_mail());
+    type(By.name("work)"), contactData.getWork_phone());
+    type(By.name("home"), contactData.getHome_phone());
 
     if(creation){
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -105,7 +107,7 @@ goToMainPage();
 
   public ContactData infoFromEditForm(ContactData contact){
     initContactModification(contact.getId());
-    String firstname=wd.findElement(By.name("firsname")).getAttribute("value");
+    String firstname=wd.findElement(By.name("firstname")).getAttribute("value");
     String lastname=wd.findElement(By.name("lastname")).getAttribute("value");
     String home=wd.findElement(By.name("home")).getAttribute("value");
     String mobile=wd.findElement(By.name("mobile")).getAttribute("value");

@@ -16,6 +16,14 @@ public class ContactData {
     return this;
   }
 
+  public String getHome_phone() {
+    return home_phone;
+  }
+
+  public String getWork_phone() {
+    return work_phone;
+  }
+
   public ContactData withWorkPhone(String work_phone) {
     this.work_phone = work_phone;
     return this;
