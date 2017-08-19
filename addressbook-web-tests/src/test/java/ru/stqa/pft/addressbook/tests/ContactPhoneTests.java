@@ -37,12 +37,24 @@ public class ContactPhoneTests extends TestBase {
   }
 
   @Test
-   public void testContactPhones() {
+   public void testContactPhonesEmailsAndAddress() {
     app.contact().goToMainPage();
     ContactData contact = app.contact().all().iterator().next();
     ContactData contactInfoFromEditor = app.contact().infoFromEditForm(contact);
 
     assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditor)));
+    assertThat(contact.getAllEmails(),equalTo(mergeEmails(contactInfoFromEditor)));
+    assertThat(contact.getAddress(),equalTo(contactInfoFromEditor.getAddress()));
+
+  }
+
+  private String mergeEmails(ContactData contactInfoFromEditor) {
+    return Arrays.asList(contactInfoFromEditor.getE_mail(),contactInfoFromEditor.getEmail2(),contactInfoFromEditor.getEmail3())
+            .stream().
+                    filter((s)->! s.equals("")).
+
+                    collect(Collectors.joining("\n"));
+
 
 
   }
