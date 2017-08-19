@@ -129,13 +129,16 @@ goToMainPage();
       String lastname = cells.get(1).getText();
       String firstname = cells.get(2).getText();
 
-      String[] phones = cells.get(5).getText().split("\n");
+     // String[] phones = cells.get(5).getText().split("\n"); - разрезка строки
+      String allPhones=cells.get(5).getText();
+
+
 
 
 
       int id=Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
       ContactData contact=new ContactData().withFirst_name(firstname).withLast_name(lastname).withId(id).
-              withHomePhone(phones[0]).withMobile_phone(phones[1]).withWorkPhone(phones[2]);
+             withAllPhones(allPhones);
       contacts.add(contact);
 
     }
