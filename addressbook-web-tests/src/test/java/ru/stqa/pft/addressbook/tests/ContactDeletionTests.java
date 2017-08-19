@@ -25,7 +25,9 @@ public class ContactDeletionTests extends TestBase {
               withFirst_name("dsafdsaf").
               withAddress("vreverg").
               withE_mail("dsafadsf@sdfg").
-              withMobile_phone("23434534")
+              withMobile_phone("23434534").
+              withHomePhone("234324").withWorkPhone("324324324").
+              withGroup("test")
       );
     }
     app.goTo().HomePage();

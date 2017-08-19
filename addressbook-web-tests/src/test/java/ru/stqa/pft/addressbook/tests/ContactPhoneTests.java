@@ -20,6 +20,7 @@ public class ContactPhoneTests extends TestBase {
   @BeforeMethod
   public void ensurePreconditions(){
     app.goTo().HomePage();
+
     if( app.contact().all().size()==0){
       app.contact().create(new ContactData().withLast_name("sdfsdfsdaf").
               withFirst_name("dsafdsaf").
@@ -27,7 +28,8 @@ public class ContactPhoneTests extends TestBase {
               withE_mail("dsafadsf@sdfg").
               withMobile_phone("23434534").
               withHomePhone("435324").
-              withWorkPhone("2345435")
+              withWorkPhone("2345435").
+              withGroup("test")
 
       );
     }
