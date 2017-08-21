@@ -28,14 +28,15 @@ public class testOfFindElenets  extends  TestBase{
     app.contact().create(contact);
     app.contact().goToMainPage();
     Contacts after = app.contact().all();
-    contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt());
+    int maxID=after.stream().mapToInt((c) -> c.getId()).max().getAsInt();
+    contact.withId(maxID);
 
     ContactData contactInfoFromDetalied = app.contact().infoFromDetaliedForm(contact);
 
-    System.out.println(contactInfoFromDetalied);
+    System.out.println(contactInfoFromDetalied.withId(maxID));
     System.out.println(contact);
 
-    System.out.println(after.stream().mapToInt((c) -> c.getId()).max().getAsInt());
+
 
 
   }

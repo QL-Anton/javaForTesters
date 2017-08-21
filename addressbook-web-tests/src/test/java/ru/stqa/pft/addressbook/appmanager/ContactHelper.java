@@ -32,7 +32,6 @@ public class ContactHelper extends  HelperBase {
     type(By.name("email"), contactData.getE_mail());
     type(By.name("work"), contactData.getWork_phone());
     type(By.name("home"), contactData.getHome_phone());
-    type(By.name("home"), contactData.getHome_phone());
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
 
@@ -144,9 +143,11 @@ public class ContactHelper extends  HelperBase {
 
     initViewDetaliedInformation(contact.getId());
     ContactData detaliedInfoContact=new ContactData();
-    String detailsName = wd.findElement(By.id("container")).findElement(By.xpath("//div[@id='content']")).getText();
+    String[] detailsName = wd.findElement(By.id("container")).findElement(By.xpath("//div[@id='content']")).getText().split("\n");
+    String FullName=detailsName[0];
+    String address=detailsName[1];
 
-return  detaliedInfoContact;
+return  detaliedInfoContact.withFirst_name(FullName).withAddress(detailsName[1]);
 
   }
 
@@ -168,6 +169,7 @@ return  detaliedInfoContact;
       String allPhones=cells.get(5).getText();
       String allEmails=cells.get(4).getText();
       String address=cells.get(3).getText();
+      String fullname=lastname+firstname;
 
 
 
