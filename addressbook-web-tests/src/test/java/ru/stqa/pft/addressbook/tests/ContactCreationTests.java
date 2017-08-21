@@ -26,14 +26,14 @@ public class ContactCreationTests extends  TestBase {
             withAddress("Lenina").
             withE_mail("testovyi@mail.ru").
             withMobile_phone("+7-919-23324234324").
-            withGroup("test2");
+            withGroup("test2").withEmail2("dsgdsfg").withEmail3("dsfgfdg");
     app.contact().create(contact);
     app.goTo().HomePage();
     Contacts after = app.contact().all();
     assertThat(after.size(), equalTo(before.size() + 1));
     System.out.println(app.contact().all());
 
-    contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt());
+
 
 
     assertThat(after, equalTo(

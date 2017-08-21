@@ -165,7 +165,17 @@ public class ContactData {
     return "ContactData{" +
             "first_name='" + first_name + '\'' +
             ", last_name='" + last_name + '\'' +
+            ", address='" + address + '\'' +
+            ", e_mail='" + e_mail + '\'' +
+            ", group='" + group + '\'' +
             ", id=" + id +
+            ", mobile_phone='" + mobile_phone + '\'' +
+            ", home_phone='" + home_phone + '\'' +
+            ", work_phone='" + work_phone + '\'' +
+            ", allPhones='" + allPhones + '\'' +
+            ", email2='" + email2 + '\'' +
+            ", email3='" + email3 + '\'' +
+            ", allEmails='" + allEmails + '\'' +
             '}';
   }
 

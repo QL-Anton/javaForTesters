@@ -52,7 +52,6 @@ public class ContactPhoneTests extends TestBase {
     return Arrays.asList(contactInfoFromEditor.getE_mail(),contactInfoFromEditor.getEmail2(),contactInfoFromEditor.getEmail3())
             .stream().
                     filter((s)->! s.equals("")).
-
                     collect(Collectors.joining("\n"));
 
 
