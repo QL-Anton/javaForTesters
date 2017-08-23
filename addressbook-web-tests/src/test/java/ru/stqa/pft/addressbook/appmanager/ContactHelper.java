@@ -144,10 +144,20 @@ public class ContactHelper extends  HelperBase {
     initViewDetaliedInformation(contact.getId());
     ContactData detaliedInfoContact=new ContactData();
     String[] detailsName = wd.findElement(By.id("container")).findElement(By.xpath("//div[@id='content']")).getText().split("\n");
-    String FullName=detailsName[0];
+    String det1=wd.findElement(By.id("container")).findElement(By.xpath("//div[@id='content']")).getText();
+    String[] FullName=detailsName[0].split(" ");
     String address=detailsName[1];
+    String[] home_phone=detailsName[3].split(" ");
+    String[] mobile_phone=detailsName[4].split(" ");
+    String[] work_phone=detailsName[5].split(" ");
+    String[] email1=detailsName[7].split(" ");
+    String[] email2=detailsName[8].split(" ");
+    String[] email3=detailsName[9].split(" ");
 
-return  detaliedInfoContact.withFirst_name(FullName).withAddress(detailsName[1]);
+return  detaliedInfoContact.withFirst_name(FullName[0]).withLast_name(FullName[1]).withAddress(detailsName[1]).withId(contact.getId()).
+        withHomePhone(home_phone[1]).withMobile_phone(mobile_phone[1]).withWorkPhone(work_phone[1]).withE_mail(email1[0]).
+        withEmail2(email2[0]).withEmail3(email3[0]);
+
 
   }
 
@@ -169,7 +179,7 @@ return  detaliedInfoContact.withFirst_name(FullName).withAddress(detailsName[1])
       String allPhones=cells.get(5).getText();
       String allEmails=cells.get(4).getText();
       String address=cells.get(3).getText();
-      String fullname=lastname+firstname;
+
 
 
 

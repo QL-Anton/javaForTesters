@@ -1,5 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
@@ -30,11 +32,15 @@ public class testOfFindElenets  extends  TestBase{
     Contacts after = app.contact().all();
     int maxID=after.stream().mapToInt((c) -> c.getId()).max().getAsInt();
     contact.withId(maxID);
+    app.goTo().HomePage();
+    ContactData contactInfoFromEditor = app.contact().infoFromEditForm(contact);
 
     ContactData contactInfoFromDetalied = app.contact().infoFromDetaliedForm(contact);
+    MatcherAssert.assertThat(contactInfoFromDetalied, CoreMatchers.equalTo(contactInfoFromEditor));
 
-    System.out.println(contactInfoFromDetalied.withId(maxID));
-    System.out.println(contact);
+
+    System.out.println(contactInfoFromDetalied);
+    System.out.println(contactInfoFromEditor);
 
 
 
