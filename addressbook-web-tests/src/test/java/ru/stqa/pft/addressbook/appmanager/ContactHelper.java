@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-
+import java.io.File;
 import java.util.List;
 
 /**
@@ -34,6 +34,7 @@ public class ContactHelper extends  HelperBase {
     type(By.name("home"), contactData.getHome_phone());
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
+    attach(By.name("photo"),contactData.getPhoto());
 
 
     if (creation) {
