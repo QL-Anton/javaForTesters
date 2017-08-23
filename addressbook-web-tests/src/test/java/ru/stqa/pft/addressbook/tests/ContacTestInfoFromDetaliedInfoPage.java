@@ -9,11 +9,11 @@ import ru.stqa.pft.addressbook.model.Contacts;
 /**
  * Created by Антон on 19.08.2017.
  */
-public class testOfFindElenets  extends  TestBase{
+public class ContacTestInfoFromDetaliedInfoPage extends  TestBase{
 
 
   @Test(enabled = true)
-  public void testFindElements() {
+  public void testContacInfoFromDetaliedInfoPage() {
 
     app.goTo().HomePage();
     ContactData contact = new ContactData().

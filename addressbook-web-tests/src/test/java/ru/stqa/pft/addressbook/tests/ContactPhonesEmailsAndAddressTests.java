@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.Arrays;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -15,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Created by Антон on 19.08.2017.
  */
-public class ContactPhoneTests extends TestBase {
+public class ContactPhonesEmailsAndAddressTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions(){
@@ -62,7 +61,7 @@ public class ContactPhoneTests extends TestBase {
     return Arrays.asList(contact.getHome_phone(),contact.getMobile_phone(),contact.getWork_phone())
     .stream().
                     filter((s)->! s.equals("")).
-                    map(ContactPhoneTests::cleaned).
+                    map(ContactPhonesEmailsAndAddressTests::cleaned).
             collect(Collectors.joining("\n"));
 
 
