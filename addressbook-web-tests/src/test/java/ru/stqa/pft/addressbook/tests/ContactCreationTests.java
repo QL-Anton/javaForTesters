@@ -31,7 +31,6 @@ public class ContactCreationTests extends  TestBase {
     app.goTo().HomePage();
     Contacts after = app.contact().all();
     assertThat(after.size(), equalTo(before.size() + 1));
-    System.out.println(app.contact().all());
 
 
 
