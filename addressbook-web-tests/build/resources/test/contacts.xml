@@ -1,6 +1,6 @@
 <list>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <contact>test First name 0</contact>
+  <contact>
+    <first__name>test First name 0</first__name>
     <last__name>test Last name 0</last__name>
     <address>test address 0</address>
     <e__mail>test mail1_0@ya.ru</e__mail>
@@ -10,9 +10,9 @@
     <work__phone>8-919-354-45-0</work__phone>
     <email2>test mail2_0@ya.ru</email2>
     <email3>test mail3_0@ya.ru</email3>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <contact>test First name 1</contact>
+  </contact>
+  <contact>
+    <first__name>test First name 1</first__name>
     <last__name>test Last name 1</last__name>
     <address>test address 1</address>
     <e__mail>test mail1_1@ya.ru</e__mail>
@@ -22,9 +22,9 @@
     <work__phone>8-919-354-45-1</work__phone>
     <email2>test mail2_1@ya.ru</email2>
     <email3>test mail3_1@ya.ru</email3>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <contact>test First name 2</contact>
+  </contact>
+  <contact>
+    <first__name>test First name 2</first__name>
     <last__name>test Last name 2</last__name>
     <address>test address 2</address>
     <e__mail>test mail1_2@ya.ru</e__mail>
@@ -34,5 +34,5 @@
     <work__phone>8-919-354-45-2</work__phone>
     <email2>test mail2_2@ya.ru</email2>
     <email3>test mail3_2@ya.ru</email3>
-  </ru.stqa.pft.addressbook.model.ContactData>
+  </contact>
 </list>
