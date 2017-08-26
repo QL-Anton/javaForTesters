@@ -1,0 +1,38 @@
+[
+  {
+    "first_name": "test First name 0",
+    "last_name": "test Last name 0",
+    "address": "test address 0",
+    "e_mail": "test mail1_0@ya.ru",
+    "group": "test2",
+    "mobile_phone": "8-917-243-54-0",
+    "home_phone": "8-917-567-65-0",
+    "work_phone": "8-919-354-45-0",
+    "email2": "test mail2_0@ya.ru",
+    "email3": "test mail3_0@ya.ru"
+  },
+  {
+    "first_name": "test First name 1",
+    "last_name": "test Last name 1",
+    "address": "test address 1",
+    "e_mail": "test mail1_1@ya.ru",
+    "group": "test2",
+    "mobile_phone": "8-917-243-54-1",
+    "home_phone": "8-917-567-65-1",
+    "work_phone": "8-919-354-45-1",
+    "email2": "test mail2_1@ya.ru",
+    "email3": "test mail3_1@ya.ru"
+  },
+  {
+    "first_name": "test First name 2",
+    "last_name": "test Last name 2",
+    "address": "test address 2",
+    "e_mail": "test mail1_2@ya.ru",
+    "group": "test2",
+    "mobile_phone": "8-917-243-54-2",
+    "home_phone": "8-917-567-65-2",
+    "work_phone": "8-919-354-45-2",
+    "email2": "test mail2_2@ya.ru",
+    "email3": "test mail3_2@ya.ru"
+  }
+]
