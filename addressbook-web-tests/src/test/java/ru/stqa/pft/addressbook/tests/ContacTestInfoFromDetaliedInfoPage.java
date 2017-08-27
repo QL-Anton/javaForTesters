@@ -3,13 +3,14 @@ package ru.stqa.pft.addressbook.tests;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.appmanager.TestBase;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
 /**
  * Created by Антон on 19.08.2017.
  */
-public class ContacTestInfoFromDetaliedInfoPage extends  TestBase{
+public class ContacTestInfoFromDetaliedInfoPage extends TestBase {
 
 
   @Test(enabled = true)

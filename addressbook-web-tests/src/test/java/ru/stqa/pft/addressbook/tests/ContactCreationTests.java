@@ -7,9 +7,9 @@ import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.appmanager.TestBase;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 
 import java.io.BufferedReader;
@@ -25,7 +25,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class ContactCreationTests extends  TestBase {
+public class ContactCreationTests extends TestBase {
   @DataProvider
   public Iterator<Object[]> validContacts() throws IOException {
     List<Object[]> list=new ArrayList<Object[]>();

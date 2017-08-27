@@ -1,17 +1,10 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.appmanager.TestBase;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
-
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,7 +13,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by Антон on 07.07.2017.
  */
-public class GroupModificationTests  extends TestBase{
+public class GroupModificationTests  extends TestBase {
 
   @BeforeMethod
   public  void enshurePreconditions(){
