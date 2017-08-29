@@ -61,10 +61,39 @@ public class ContactData {
   @Transient
   private String allEmails;
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
 
+    ContactData that = (ContactData) o;
 
+    if (id != that.id) return false;
+    if (first_name != null ? !first_name.equals(that.first_name) : that.first_name != null) return false;
+    if (last_name != null ? !last_name.equals(that.last_name) : that.last_name != null) return false;
+    if (address != null ? !address.equals(that.address) : that.address != null) return false;
+    if (e_mail != null ? !e_mail.equals(that.e_mail) : that.e_mail != null) return false;
+    if (mobile_phone != null ? !mobile_phone.equals(that.mobile_phone) : that.mobile_phone != null) return false;
+    if (home_phone != null ? !home_phone.equals(that.home_phone) : that.home_phone != null) return false;
+    if (work_phone != null ? !work_phone.equals(that.work_phone) : that.work_phone != null) return false;
+    if (email2 != null ? !email2.equals(that.email2) : that.email2 != null) return false;
+    return email3 != null ? email3.equals(that.email3) : that.email3 == null;
+  }
 
-
+  @Override
+  public int hashCode() {
+    int result = first_name != null ? first_name.hashCode() : 0;
+    result = 31 * result + (last_name != null ? last_name.hashCode() : 0);
+    result = 31 * result + (address != null ? address.hashCode() : 0);
+    result = 31 * result + (e_mail != null ? e_mail.hashCode() : 0);
+    result = 31 * result + id;
+    result = 31 * result + (mobile_phone != null ? mobile_phone.hashCode() : 0);
+    result = 31 * result + (home_phone != null ? home_phone.hashCode() : 0);
+    result = 31 * result + (work_phone != null ? work_phone.hashCode() : 0);
+    result = 31 * result + (email2 != null ? email2.hashCode() : 0);
+    result = 31 * result + (email3 != null ? email3.hashCode() : 0);
+    return result;
+  }
 
   public String getAllEmails() {
     return allEmails;
@@ -144,26 +173,6 @@ public class ContactData {
     this.group = group;
     return this;
 
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    ContactData that = (ContactData) o;
-
-    if (id != that.id) return false;
-    if (first_name != null ? !first_name.equals(that.first_name) : that.first_name != null) return false;
-    return last_name != null ? last_name.equals(that.last_name) : that.last_name == null;
-  }
-
-  @Override
-  public int hashCode() {
-    int result = first_name != null ? first_name.hashCode() : 0;
-    result = 31 * result + (last_name != null ? last_name.hashCode() : 0);
-    result = 31 * result + id;
-    return result;
   }
 
   public ContactData withFirst_name(String first_name) {

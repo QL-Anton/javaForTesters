@@ -65,11 +65,11 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation(ContactData contact) {
 
     app.goTo().HomePage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
 
     app.contact().create(contact);
     app.goTo().HomePage();
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after.size(), equalTo(before.size() + 1));
 
 

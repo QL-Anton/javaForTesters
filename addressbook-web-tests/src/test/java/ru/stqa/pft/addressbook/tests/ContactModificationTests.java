@@ -34,7 +34,7 @@ public class ContactModificationTests extends TestBase {
 
 
 
-      Contacts before=app.contact().all();
+      Contacts before=app.db().contacts();
       ContactData modifyContact=before.iterator().next();
 
       int index=before.size()-1;
@@ -46,10 +46,10 @@ public class ContactModificationTests extends TestBase {
               withE_mail("testovyi@mail.ru").
               withMobile_phone("+7-919-23324234324");
 
-
+      app.goTo().HomePage();
       app.contact().modify( contact);
 
-      Contacts after=app.contact().all();
+      Contacts after=app.db().contacts();
       Assert.assertEquals(after.size(),before.size());
 
 
