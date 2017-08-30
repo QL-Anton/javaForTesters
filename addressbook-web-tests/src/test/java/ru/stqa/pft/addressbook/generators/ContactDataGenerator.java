@@ -40,7 +40,7 @@ public class ContactDataGenerator {
       jCommander.usage();
       return;
     }
-    generator.run();
+     generator.run();
   }
 
 

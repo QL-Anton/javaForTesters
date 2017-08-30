@@ -33,7 +33,7 @@ public class ContactModificationTests extends TestBase {
     public void testContactModification() {
 
 
-
+      app.goTo().HomePage();
       Contacts before=app.db().contacts();
       ContactData modifyContact=before.iterator().next();
 
@@ -44,7 +44,12 @@ public class ContactModificationTests extends TestBase {
               withFirst_name("Ivan").
               withAddress("Lenina").
               withE_mail("testovyi@mail.ru").
-              withMobile_phone("+7-919-23324234324");
+              withMobile_phone("+7-919-23324234324").
+              withHomePhone("945435").
+              withWorkPhone("324324").
+              withEmail3("sdfsf").
+              withEmail2("fghrgfh4");
+      System.out.println(contact);
 
       app.goTo().HomePage();
       app.contact().modify( contact);

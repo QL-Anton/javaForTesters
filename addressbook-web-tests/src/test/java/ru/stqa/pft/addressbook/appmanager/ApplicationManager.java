@@ -59,7 +59,7 @@ wd=new ChromeDriver();
     }
 
 
-wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
      wd.get(properties.getProperty("Web.baseUrl")) ;
     groupHelper = new GroupHelper(wd);
