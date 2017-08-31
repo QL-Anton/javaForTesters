@@ -31,46 +31,6 @@ public class ContactData {
   @Transient
   private  String group;
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    ContactData that = (ContactData) o;
-
-    if (id != that.id) return false;
-    if (first_name != null ? !first_name.equals(that.first_name) : that.first_name != null) return false;
-    if (last_name != null ? !last_name.equals(that.last_name) : that.last_name != null) return false;
-    if (address != null ? !address.equals(that.address) : that.address != null) return false;
-    if (e_mail != null ? !e_mail.equals(that.e_mail) : that.e_mail != null) return false;
-    if (group != null ? !group.equals(that.group) : that.group != null) return false;
-    if (mobile_phone != null ? !mobile_phone.equals(that.mobile_phone) : that.mobile_phone != null) return false;
-    if (home_phone != null ? !home_phone.equals(that.home_phone) : that.home_phone != null) return false;
-    if (work_phone != null ? !work_phone.equals(that.work_phone) : that.work_phone != null) return false;
-    if (allPhones != null ? !allPhones.equals(that.allPhones) : that.allPhones != null) return false;
-    if (email2 != null ? !email2.equals(that.email2) : that.email2 != null) return false;
-    if (email3 != null ? !email3.equals(that.email3) : that.email3 != null) return false;
-    return allEmails != null ? allEmails.equals(that.allEmails) : that.allEmails == null;
-  }
-
-  @Override
-  public int hashCode() {
-    int result = first_name != null ? first_name.hashCode() : 0;
-    result = 31 * result + (last_name != null ? last_name.hashCode() : 0);
-    result = 31 * result + (address != null ? address.hashCode() : 0);
-    result = 31 * result + (e_mail != null ? e_mail.hashCode() : 0);
-    result = 31 * result + (group != null ? group.hashCode() : 0);
-    result = 31 * result + id;
-    result = 31 * result + (mobile_phone != null ? mobile_phone.hashCode() : 0);
-    result = 31 * result + (home_phone != null ? home_phone.hashCode() : 0);
-    result = 31 * result + (work_phone != null ? work_phone.hashCode() : 0);
-    result = 31 * result + (allPhones != null ? allPhones.hashCode() : 0);
-    result = 31 * result + (email2 != null ? email2.hashCode() : 0);
-    result = 31 * result + (email3 != null ? email3.hashCode() : 0);
-    result = 31 * result + (allEmails != null ? allEmails.hashCode() : 0);
-    return result;
-  }
-
   @XStreamOmitField
   @Id
 
@@ -245,6 +205,46 @@ public class ContactData {
             ", email3='" + email3 + '\'' +
             ", allEmails='" + allEmails + '\'' +
             '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    ContactData that = (ContactData) o;
+
+    if (id != that.id) return false;
+    if (first_name != null ? !first_name.equals(that.first_name) : that.first_name != null) return false;
+    if (last_name != null ? !last_name.equals(that.last_name) : that.last_name != null) return false;
+    if (address != null ? !address.equals(that.address) : that.address != null) return false;
+    if (e_mail != null ? !e_mail.equals(that.e_mail) : that.e_mail != null) return false;
+    if (group != null ? !group.equals(that.group) : that.group != null) return false;
+    if (mobile_phone != null ? !mobile_phone.equals(that.mobile_phone) : that.mobile_phone != null) return false;
+    if (home_phone != null ? !home_phone.equals(that.home_phone) : that.home_phone != null) return false;
+    if (work_phone != null ? !work_phone.equals(that.work_phone) : that.work_phone != null) return false;
+    if (allPhones != null ? !allPhones.equals(that.allPhones) : that.allPhones != null) return false;
+    if (email2 != null ? !email2.equals(that.email2) : that.email2 != null) return false;
+    if (email3 != null ? !email3.equals(that.email3) : that.email3 != null) return false;
+    return allEmails != null ? allEmails.equals(that.allEmails) : that.allEmails == null;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = first_name != null ? first_name.hashCode() : 0;
+    result = 31 * result + (last_name != null ? last_name.hashCode() : 0);
+    result = 31 * result + (address != null ? address.hashCode() : 0);
+    result = 31 * result + (e_mail != null ? e_mail.hashCode() : 0);
+    result = 31 * result + (group != null ? group.hashCode() : 0);
+    result = 31 * result + id;
+    result = 31 * result + (mobile_phone != null ? mobile_phone.hashCode() : 0);
+    result = 31 * result + (home_phone != null ? home_phone.hashCode() : 0);
+    result = 31 * result + (work_phone != null ? work_phone.hashCode() : 0);
+    result = 31 * result + (allPhones != null ? allPhones.hashCode() : 0);
+    result = 31 * result + (email2 != null ? email2.hashCode() : 0);
+    result = 31 * result + (email3 != null ? email3.hashCode() : 0);
+    result = 31 * result + (allEmails != null ? allEmails.hashCode() : 0);
+    return result;
   }
 
   public ContactData withAllPhones(String allPhones) {
