@@ -53,27 +53,24 @@ public class ApplicationManager {
     }
 
 
-    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
     wd.get(properties.getProperty("Web.baseUrl"));
 
   }
 
-  public void login(String username, String password) {
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys("a");
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys(username);
-    wd.findElement(By.name("pass")).click();
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys(password);
-    wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-  }
 
   public void stop() {
     wd.quit();
   }
+
+  public HttpSession newSession() {
+        return new HttpSession(this);
+      }
+
+           public String getProperty(String key) {
+    return properties.getProperty(key);
+      }
+
 }
 
