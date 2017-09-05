@@ -35,8 +35,7 @@ public class ApplicationManager {
 
   public void init() throws IOException {
 
-    WebDriver driver;
-    System.setProperty("webdriver.gecko.driver", "D:\\geckodriver\\geckodriver.exe");
+
 
 
     String target = System.getProperty("target", "local");
