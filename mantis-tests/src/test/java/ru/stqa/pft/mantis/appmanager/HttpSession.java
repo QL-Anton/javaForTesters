@@ -59,4 +59,11 @@ public class HttpSession {
     String body = getTextFrom(response);
     return body.contains(String.format("<span class=\"italic\">%s</span>", username));
   }
+
+
+
+
+
+
 }
+
