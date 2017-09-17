@@ -41,10 +41,12 @@ import java.util.stream.Collectors;
              try {
                MimeMessage mm = m.getMimeMessage();
                return new MailMessage(mm.getAllRecipients()[0].toString(), (String) mm.getContent());
-             } catch (IOException e) {
+             }
+              catch (javax.mail.MessagingException e) {
                e.printStackTrace();
                return null;
-             } catch (javax.mail.MessagingException e) {
+             }
+             catch (IOException e) {
                e.printStackTrace();
                return null;
              }
