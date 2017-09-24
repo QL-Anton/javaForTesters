@@ -23,9 +23,10 @@ public void startMailServer(){
 
   @Test
   public  void testRegistration() throws IOException, MessagingException {
+    long current_time = System.currentTimeMillis();
     String password="password";
-    String user="user1";
-    String email = "user1@localhost.localdomain";
+    String user=String.format("user%s", current_time);
+    String email = String.format("user%s@localhost.localdomain", current_time);
     app.registration().start(user, email);
     List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
     String confirmationLink = findConfirmationLink ( mailMessages, email );
