@@ -26,7 +26,7 @@ public class ApplicationManager {
   private FtpHelper ftp;
   private MailHelper mailHelper;
   private JamesHelper jamesHelper;
-  private ChangePasswordHelper changeHelper;
+
 
 
   public ApplicationManager(String browser) {
@@ -115,12 +115,6 @@ public class ApplicationManager {
     return jamesHelper;
   }
 
-  public ChangePasswordHelper change(){
-    if (changeHelper==null){
-      changeHelper = new ChangePasswordHelper(this);
-    }
-    return  changeHelper;
-  }
 }
 
 
