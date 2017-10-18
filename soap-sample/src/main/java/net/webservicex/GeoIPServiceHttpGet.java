@@ -21,7 +21,7 @@ public interface GeoIPServiceHttpGet {
     /**
      * GeoIPService - GetGeoIP enables you to easily look up countries by IP addresses
      */
-    @WebMethod(  = "GetGeoIP")
+    @WebMethod(operationName ="GetGeoIP")
     @WebResult(name = "GeoIP", targetNamespace = "http://www.webservicex.net/", partName = "Body")
     public GeoIP getGeoIP(
         @WebParam(partName = "IPAddress", name = "IPAddress", targetNamespace = "")

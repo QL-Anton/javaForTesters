@@ -25,7 +25,7 @@ public interface GeoIPServiceSoap {
     @RequestWrapper(localName = "GetGeoIP", targetNamespace = "http://www.webservicex.net/", className = "net.webservicex.GetGeoIP")
     @ResponseWrapper(localName = "GetGeoIPResponse", targetNamespace = "http://www.webservicex.net/", className = "net.webservicex.GetGeoIPResponse")
     @WebResult(name = "GetGeoIPResult", targetNamespace = "http://www.webservicex.net/")
-    pu blic net.webservicex.GeoIP getGeoIP(
+    public net.webservicex.GeoIP getGeoIP(
         @WebParam(name = "IPAddress", targetNamespace = "http://www.webservicex.net/")
         java.lang.String ipAddress
     );
