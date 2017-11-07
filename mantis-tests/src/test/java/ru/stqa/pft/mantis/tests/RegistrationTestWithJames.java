@@ -23,7 +23,7 @@ public class RegistrationTestWithJames extends TestBase {
     long now = System.currentTimeMillis();
     String user = String.format("user%s", now);
     String password = "password";
-    String email = String.format("user%s@localhost.localdomain", now);
+    String email = String.format("user%s@localhost", now);
     //перед тем как начать регистрацию пользователя, его нужно сначала создать на почтовом сервере
     //так как имя пользователя user  и префикс  user%s совпадают, то почта будет доставляться именно этому пользователю
     app.james().createUser(user, password);
