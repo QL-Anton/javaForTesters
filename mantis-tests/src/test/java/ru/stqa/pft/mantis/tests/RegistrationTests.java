@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import ru.lanwen.verbalregex.VerbalExpression;
 import ru.stqa.pft.mantis.model.MailMessage;
 
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,7 +23,8 @@ public void startMailServer(){
 }
 
   @Test
-  public  void testRegistration() throws IOException, MessagingException {
+  public  void testRegistration() throws IOException, MessagingException, ServiceException {
+    skipIfNotFixed(3);
     long current_time = System.currentTimeMillis();
     String password="password";
     String user=String.format("user%s", current_time);

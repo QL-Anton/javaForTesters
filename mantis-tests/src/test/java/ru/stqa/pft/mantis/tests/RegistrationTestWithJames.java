@@ -20,6 +20,7 @@ public class RegistrationTestWithJames extends TestBase {
 
   @Test
   public void testRegistrationJames() throws IOException, MessagingException {
+
     long now = System.currentTimeMillis();
     String user = String.format("user%s", now);
     String password = "password";

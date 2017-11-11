@@ -24,6 +24,7 @@ public class RestTests {
     Set<Issue> newIssues = getIssues();
     oldIssues.add(newIssue.withId(issueId));
    assertEquals(newIssues, oldIssues);
+getIssueById(1);
   }
 
   private Set<Issue> getIssues() throws IOException {
@@ -47,6 +48,15 @@ public class RestTests {
             .returnContent().asString();
     JsonElement parsed = new JsonParser().parse(json);
     return parsed.getAsJsonObject().get("issue_id").getAsInt();
+
+
   }
 
+
+  public int getIssueById(int id) throws IOException {
+     String json = getExecutor().execute(Request.Get("http://demo.bugify.com/api/issues/1.json"))
+            .returnContent().asString();
+    JsonElement parsed = new JsonParser().parse(json);
+     return  parsed.getAsJsonObject().get("issue_id").getAsInt();
+  }
 }
